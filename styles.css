@@ -41,6 +41,15 @@ header{
     font-weight: 400;
 }
 
+.header__nav ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    margin: 0;
+    list-style: none;
+}
+
 .banner{
     width: 100%;
     position: relative;
@@ -59,6 +68,16 @@ header{
     color: #392683;
 }
 
+.banner__dots{
+    position: absolute;
+    bottom: 10px;
+    margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+}
+
+
 .banner__title{
 font-size: 3em;
 line-height: 40px;
@@ -73,6 +92,41 @@ line-height: 40px;
     padding: 10px;
     text-decoration: none;
     color: #392683;
+    border-style: solid;
+    justify-self: center;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.topproducts{
+    margin: 50px;
+    
+}
+
+.topproducts__media{
+justify-content: center;
+align-self: center;
+}
+
+
+.topproducts__title{
+    color: #392683;
+    font-size: 2em;
+}
+
+.media__img{
+    width: 30%;
+    height: 30%;
+    padding: 25px;
+    filter: drop-shadow(10px 6px 8px #afafaf81);
+}
+
+.topproducts__link{
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #DC037F;
     border-style: solid;
     justify-self: center;
     display: block;
