@@ -38,5 +38,44 @@ header{
     text-decoration: none;
     color: #fff;
     font-size: 2.3em;
-    font-weight: bold;
+    font-weight: 400;
+}
+
+.banner{
+    width: 100%;
+    position: relative;
+}
+
+.banner__img{
+    width: 100%;
+}
+
+.banner__content{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50px;
+    width: 40%;
+    color: #392683;
+}
+
+.banner__title{
+font-size: 3em;
+line-height: 40px;
+}
+
+.banner__description{
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.banner__link{
+    padding: 10px;
+    text-decoration: none;
+    color: #392683;
+    border-style: solid;
+    justify-self: center;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
 }
