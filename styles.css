@@ -69,6 +69,7 @@ header{
 }
 
 .banner__dots{
+    width: 10%;
     position: absolute;
     bottom: 10px;
     margin-left: auto;
@@ -121,7 +122,7 @@ align-self: center;
     padding: 25px;
     filter: drop-shadow(10px 6px 8px #afafaf81);
 }
-
+ 
 .topproducts__link{
     padding: 10px;
     text-decoration: none;
@@ -132,4 +133,95 @@ align-self: center;
     display: block;
     width: fit-content;
     margin: 0 auto;
+    border-radius: 10px;
+}
+.newsletter{
+    width: 60%;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+.newsletter__title{
+    color: #392683;
+    font-size: 1.5em;
+    padding-top: 25px;
+    margin-bottom: 30px;
+}
+.newsletter__form{
+    flex-direction: column;
+    justify-content: center;
+}
+.newsletter__input{
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    padding: 10px;
+    border-color: #0C83CD;
+    color: #7A7689;
+    font-weight: 700;
+    border-radius: 10px;
+    border-width: 3px;
+}
+.newsletter__submiter{
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #0C83CD;
+    border-style: solid;
+    border-color: #0C83CD;
+    background: none;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 10px;
+    border-width: 3px;
+    margin-bottom: 50px;
+}
+
+.complains{
+    width: 60%;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.complains__title{
+    color: #392683;
+    font-size: 1.5em;
+    padding-top: 25px;
+    margin-bottom: 30px;
+    padding-right: 260px;
+    justify-self: flex-start;
+}
+
+.complains_form{
+    flex-direction: column;
+    justify-content: center;
+}
+.complains__textarea{
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    padding: 10px;
+    border-color: #392683;
+    color: #7A7689;
+    font-weight: 700;
+    border-radius: 10px;
+    border-width: 3px;
+    padding-bottom: 30px;
+}
+.complains__submiter{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #392683;
+    border-style: solid;
+    border-color: #392683;
+    background: none;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 10px;
+    border-width: 3px;
+    margin-bottom: 50px;
 }
