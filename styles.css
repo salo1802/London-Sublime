@@ -16,16 +16,16 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 50px 25px 50px;
+    padding: 15px 50px 15px 50px;
 }
 
 
 .header__logo{
-    height: 60px;
+    height: 50px;
 }
 
 .header__profile{
-    height: 46px;
+    height: 36px;
 }
 
 .header__nav{
@@ -37,7 +37,7 @@ header{
 .header__nav a{
     text-decoration: none;
     color: #fff;
-    font-size: 2.3em;
+    font-size: 1.5em;
     font-weight: 400;
 }
 
@@ -61,7 +61,7 @@ header{
 
 .banner__content{
     position: absolute;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
     left: 50px;
     width: 40%;
@@ -80,13 +80,14 @@ right: 0;
 
 
 .banner__title{
-font-size: 3em;
-line-height: 40px;
+font-size: 2em;
+line-height: 30px;
 }
 
 .banner__description{
     margin-top: 25px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    font-size: 0.8em;
 }
 
 .banner__link{
@@ -224,4 +225,59 @@ align-self: center;
     border-radius: 10px;
     border-width: 3px;
     margin-bottom: 50px;
+}
+
+footer{
+    width: 100%;
+    background-color: #302B87;
+    color: #fff;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px;
+    
+}
+.footer__content{
+    align-items: flex-start;
+   width: 60%;
+   font-size: 0.5em;
+   justify-content: space-between;
+}
+.footer__logo{
+    align-self: center;
+    width: 20%;
+    height: auto;
+}
+.footer__contact{
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
+.contact__content{
+    width: 100%;
+    justify-content: space-between;
+}
+.contact__div{
+    flex-direction: column;
+    justify-content: center;
+
+    
+}
+.contact__element{
+    align-items: center;
+    margin-bottom: 10px;
+}
+.contact__img{
+    padding-right: 10px;
+}
+
+.footer__aboutus{
+    width: 45%;
+}
+
+.footer__title{
+    margin-bottom: 25px;
+}
+.footer__aboutus{
+    flex-direction: column;
+    align-items: center;
 }
