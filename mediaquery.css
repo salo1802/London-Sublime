@@ -101,9 +101,29 @@ footer{
     width: 100%;
     flex-direction: column;
     align-items: center;
-    padding: 25px;
+    padding: 10px;
     
 }
+.footer__logo{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.footer__content{
+    width: 100%;
+    align-items: flex-start;
+   justify-content: center;
+}
+
+.footer__contact{
+width: 35%;
+}
+
+
+.aboutus__content{
+    width: 50%;
+}
+
+
 }
 
 @media all and (max-width: 500px) {
