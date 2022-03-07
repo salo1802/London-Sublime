@@ -28,37 +28,48 @@
 
 
 .banner__title{
-font-size: 1em;
+font-size: 1.8em;
 line-height: 30px;
 }
 
 .banner__description{
     margin-top: 15px;
     margin-bottom: 15px;
-    font-size: 0.5em;
+    font-size: 0.8em;
 }
 
 .banner__link{
-    font-size: 0.5em;
+    font-size: 0.8em;
     padding: 5px;
     color: #392683;
     display: inline;
     width: fit-content;
     margin: 0 auto;
 }
+
+.topproducts{
+    margin-top: 15px;
+}
+
+.topproducts__title{
+    font-size: 1.5em;
+}
+
 .topproducts__media{
+    margin-top: 25%;
     position: relative;
     align-items: baseline;
     justify-content: center;
 }
 .media__container{
+    width: 300px;
+    padding: 0;
     display: flex;
     justify-content: center;
 }
 .media__img {
     opacity: 0.6;
     display: block;
-    width: 80%;
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
@@ -75,6 +86,15 @@ line-height: 30px;
     padding: 0;
     opacity: 1;
 }
+
+.topproducts__link {
+   border-style: none;
+    text-decoration:underline;
+    font-size: 1em;
+  }
+
+ 
+
 
     
 footer{
@@ -120,7 +140,7 @@ footer{
     left: 0%;
     padding: 10px;
     color: #392683;
-    margin-top: 211px;
+    margin-top: 180px;
 }
 
 .banner__dots{
@@ -135,18 +155,17 @@ right: 0;
 
 
 .banner__title{
-font-size: 2em;
+font-size: 1.5em;
 line-height: 30px;
 }
 
 .banner__description{
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin: 10px;
     font-size: 0.8em;
 }
 
 .banner__link{
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
     color: #392683;
     border-style: solid;
@@ -154,5 +173,9 @@ line-height: 30px;
     display: block;
     width: fit-content;
     margin: 0 auto;
+}
+
+.topproducts{
+    margin-top: 70%;
 }
 }
