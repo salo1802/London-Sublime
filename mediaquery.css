@@ -198,4 +198,24 @@ line-height: 30px;
 .topproducts{
     margin-top: 70%;
 }
+
+.footer__content{
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__contact{
+    width: 70%;
+    }
+
+.contact__content{
+    align-content: space-around;
+    }
+.footer__aboutus{
+    width: 70%;
+}  
+    
+.aboutus__content{
+        width: 100%;
+    }
 }
