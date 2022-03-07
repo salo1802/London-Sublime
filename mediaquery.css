@@ -62,7 +62,7 @@ line-height: 30px;
     justify-content: center;
 }
 .media__container{
-    width: 300px;
+    width: 30%;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -93,6 +93,14 @@ line-height: 30px;
     font-size: 1em;
   }
 
+
+.newsletter{
+width: 60%;
+}
+
+.complains{
+    width: 60%;
+}
  
 
 
