@@ -51,11 +51,11 @@
    <form id="createForm">
        <div id = "formcontent">
         <h2 class="formtitles">Name</h2>
-        <input type="text" name="productName">
+        <input required type="text" name="productName">
         <h2 class="formtitles">Price</h2>
-        <input type="number" name="productPrice">
+        <input required type="number" name="productPrice">
         <h2 class="formtitles">Category</h2>
-        <select name="category">
+        <select required name="category">
             <option value="">Clothes</option>
             <option value="">Accessories</option>
             <option value="">For Home</option>
@@ -63,7 +63,7 @@
         <h2 class="formtitles">Color</h2>
         <input class="productColor" type="color" name="productColor">
         <h2 class="formtitles">Image</h2>
-        <input class="productImage" type="file" name="productImage">
+        <input required multiple=false accept=".png,.jpg,.jpeg" class="productImage" type="file" name="productImage">
        
        </div>
     <button id="addColor">Add a color</button>

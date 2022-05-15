@@ -8,14 +8,16 @@ import { connectStorageEmulator } from "@firebase/storage";
 const createProductForm = document.getElementById("createForm");
 const addButton = document.getElementById("addColor");
 const submiter = document.getElementById("submiter");
-let colors = document.getElementsByClassName("productColor");
-let images = documents.getElementsByClassName("productsImages");
-const numberOfColors = 0;
- 
+let colors = [...document.getElementsByClassName("productColor")];
+let images = [...document.getElementsByClassName("productImage")];
+let colorList = [];
+let imagesList = [];
 
 //añadir color
 addButton.addEventListener("click", (e)=>{
-    numberOfColors++;
+    e.preventDefault();
+    colors = [...document.getElementsByClassName("productColor")];
+    images = [...document.getElementsByClassName("productImage")];
     console.log("entro")
     let div  = document.getElementById("formcontent")
     let newColor = document.createElement("div");
@@ -23,39 +25,55 @@ addButton.addEventListener("click", (e)=>{
     
     newColor.innerHTML = `
     <h2 class="formtitles">Color</h2>
-    <input class="productColor" type="color" id="productColor">
+    <input class="productColor" type="color">
     <h2 class="formtitles">Image</h2>
-    <input class="productImage" type="file" id="productImage">
+    <input required multiple=`+false +` accept=".png,.jpg,.jpeg" class="productImage" type="file">
     `
      console.log(newColor.innerHTML);
 
     div.appendChild(newColor);
+   
+    
+     
+    
     
 })
 
 
 
-
-
+console.log(images);
 
 createProductForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("Create a new product");
+    let images = [...document.getElementsByClassName("productImage")];
+    let colors = [...document.getElementsByClassName("productColor")];
 
+    imagesList.length = 0;
+    images.forEach((images)=>{
+        console.log(images.files[0]);
+        imagesList.push(images.files[0]);
+    })
+
+    colorList.length = 0;
+       colors.forEach(color =>{
+           colorList.push(color.value);
+       })
+
+    console.log(imagesList);
+    console.log(colorList)
     const name = createProductForm.name.value;
     const price = createProductForm.price.value;
     const category = createProductForm.category.value;
-    let images = []
-    let colors = [];
    
 
     
-    /*
+    
     let gallery = [];
-
-    if (images.length) {
+    
+    if (imagesList.length) {
         // Vamos a subir las imagenes a firestore
-        const uploadedImages = await uploadImages(storage, [...images]);
+        const uploadedImages = await uploadImages(storage, imagesList);
 
         gallery = await Promise.all(uploadedImages);
     }
@@ -65,9 +83,10 @@ createProductForm.addEventListener("submit", async (e) => {
         price,
         category,
         images: gallery,
+        colors: colorList
     };
 
-    await addProduct(db, newProduct);*/
-    console.log(images);
-    console.log(colors);
+    await addProduct(db, newProduct);
+    //console.log(images);
+   // console.log(colors);
 });
