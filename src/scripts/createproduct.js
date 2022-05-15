@@ -1,8 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { doc } from "@firebase/firestore";
 import { storage, db } from "./app";
-import { addProduct, uploadImages } from "../functions/addProduct";
+import { addProduct,uploadImages } from "../functions/addProduct";
 import { connectStorageEmulator } from "@firebase/storage";
+import { ref, uploadBytes, getDownloadURL} from "firebase/storage";
+
 import {nav} from "../functions/navigation"
 
 //nav
@@ -13,16 +15,15 @@ import {nav} from "../functions/navigation"
 const createProductForm = document.getElementById("createForm");
 const addButton = document.getElementById("addColor");
 const submiter = document.getElementById("submiter");
-let colors = [...document.getElementsByClassName("productColor")];
 let images = [...document.getElementsByClassName("productImage")];
+let colors = [...document.getElementsByClassName("productColor")];
 let colorList = [];
 let imagesList = [];
 
 //añadir color
 addButton.addEventListener("click", (e)=>{
     e.preventDefault();
-    colors = [...document.getElementsByClassName("productColor")];
-    images = [...document.getElementsByClassName("productImage")];
+
     console.log("entro")
     let div  = document.getElementById("formcontent")
     let newColor = document.createElement("div");
@@ -30,9 +31,12 @@ addButton.addEventListener("click", (e)=>{
     
     newColor.innerHTML = `
     <h2 class="formtitles">Color</h2>
-    <input class="productColor" type="color">
-    <h2 class="formtitles">Image</h2>
-    <input required multiple=`+false +` accept=".png,.jpg,.jpeg" class="productImage" type="file">
+     <input class="productColor"  type="color">
+     <h2 class="formtitles--image">Image</h2>
+     <label class="custom-file-upload">
+        <input required multiple=false accept=".png,.jpg,.jpeg" class="productImage" type="file">
+        upload the color image
+    </label>
     `
      console.log(newColor.innerHTML);
 
@@ -48,6 +52,7 @@ addButton.addEventListener("click", (e)=>{
 
 console.log(images);
 
+
 createProductForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("Create a new product");
@@ -56,8 +61,8 @@ createProductForm.addEventListener("submit", async (e) => {
 
     imagesList.length = 0;
     images.forEach((images)=>{
-        console.log(images.files[0]);
-        imagesList.push(images.files[0]);
+        console.log(images.files);
+        imagesList.push(images.files);
     })
 
     colorList.length = 0;
@@ -67,31 +72,34 @@ createProductForm.addEventListener("submit", async (e) => {
 
     console.log(imagesList);
     console.log(colorList)
-    const name = createProductForm.name.value;
-    const price = createProductForm.price.value;
+    const name = createProductForm.productName.value;
+    const price = createProductForm.productPrice.value;
     const category = createProductForm.category.value;
    
 
     
-    
     let gallery = [];
     
     if (imagesList.length) {
+
         // Vamos a subir las imagenes a firestore
-        const uploadedImages = await uploadImages(storage, imagesList);
 
-        gallery = await Promise.all(uploadedImages);
+
+       const srcImages = uploadImages(storage,[...imagesList])
+
+        gallery = await Promise.all( srcImages);
+        console.log(gallery);
     }
-
+/*
     const newProduct = {
         name,
         price,
         category,
         images: gallery,
-        colors: colorList
+        colors:{colorList}
     };
 
     await addProduct(db, newProduct);
     //console.log(images);
-   // console.log(colors);
+   // console.log(colors);*/
 });
