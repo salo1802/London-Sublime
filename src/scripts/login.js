@@ -1,10 +1,19 @@
 import { db, auth } from "./app.js";
 import { login, createUser, addUserToDatabase } from "../functions/auth.js";
+import{nav} from "../functions/navigation"
 const registerink = document.getElementById("register");
 const createUserForm = document.getElementById("RegisterForm");
 const loginForm = document.getElementById("loginForm");
+import {nav} from "../functions/navigation"
+
+//nav
+
+   nav(document);
+
 
 createUserForm.hidden =true;
+
+
 
 registerink.addEventListener("click",()=>{
 loginForm.hidden = true;

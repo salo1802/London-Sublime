@@ -15,7 +15,7 @@ async function imageUploadReference(storage, image) {
     return await uploadBytes(storageRef, image);
 }
 
-async function uploadImages(storage, images) {
+async function uploadImages(storage, images = []) {
     const uploadedImages = images.map( async (image) => {
         const imageReference = await imageUploadReference(storage, image);
 

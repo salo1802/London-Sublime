@@ -3,7 +3,12 @@ import { doc } from "@firebase/firestore";
 import { storage, db } from "./app";
 import { addProduct, uploadImages } from "../functions/addProduct";
 import { connectStorageEmulator } from "@firebase/storage";
+import {nav} from "../functions/navigation"
 
+//nav
+
+   nav(document);
+    
 
 const createProductForm = document.getElementById("createForm");
 const addButton = document.getElementById("addColor");
