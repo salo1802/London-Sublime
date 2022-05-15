@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>London Sublime</title>
-    <link rel="stylesheet" href="./src/styles/mediaquery.css">
-    <link rel="stylesheet" href="./src/styles/oldstyles.css">
+    <link rel="stylesheet" href="./src/styles/oldstyles.scss">
+    <link rel="stylesheet" href="./src/styles/createProduct.scss">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -48,29 +48,40 @@
 
 
 <!-- create form-->
-   <form id="createForm">
-       <div id = "formcontent">
-        <h2 class="formtitles">Name</h2>
-        <input required type="text" name="productName">
-        <h2 class="formtitles">Price</h2>
-        <input required type="number" name="productPrice">
-        <h2 class="formtitles">Category</h2>
-        <select required name="category">
-            <option value="">Clothes</option>
-            <option value="">Accessories</option>
-            <option value="">For Home</option>
-        </select>
-        <h2 class="formtitles">Color</h2>
-        <input class="productColor" type="color" name="productColor">
-        <h2 class="formtitles">Image</h2>
+<div id="content__div" class="flex">
+    <form id="createForm">
+    <div class = "formcontent flex" id="formcontent">
+     <h2 class="formtitles">Name</h2>
+     <input class="form__text" required type="text" name="productName">
+     <h2 class="formtitles">Price</h2>
+     <input class="form__text" required type="number" name="productPrice">
+     <h2 class="formtitles">Category</h2>
+     <select class="category"  name="category">
+         <option class="option" value="Clothes">Clothes</option>
+         <option class="option" value="Accessories">Accessories</option>
+         <option class="option" value="For Home">For Home</option>
+     </select>
+     <h2 class="formtitles">Color</h2>
+     <input class="productColor"  type="color" name="productColor">
+     <h2 class="formtitles--image">Image</h2>
+     <label class="custom-file-upload">
         <input required multiple=false accept=".png,.jpg,.jpeg" class="productImage" type="file" name="productImage">
-       
-       </div>
-    <button id="addColor">Add a color</button>
-    <input id="submiter" type="submit" value="Add to products">
+        upload the color image
+    </label>
+     
+    
+    </div>
+    <div class="form__buttons">
+        <button id="addColor">Add a color</button>
+ <input id="submiter" type="submit" value="Add to products">
+    </div>
+ 
 
 
-   </form>
+</form>
+
+</div>
+   
 
  
     <!-- fotter -->
