@@ -18,8 +18,7 @@
   },
   "homepage": "https://github.com/salo1802/London-Sublime#readme",
   "dependencies": {
-    "firebase": "^9.6.0",
-    "sass": "^1.51.0"
+    "firebase": "^9.6.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.4.1",
