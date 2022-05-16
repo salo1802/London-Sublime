@@ -1,11 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { doc } from "@firebase/firestore";
 import { storage, db } from "./app";
-import { addProduct,uploadImages } from "../functions/addProduct";
-import { connectStorageEmulator } from "@firebase/storage";
+import { addProduct, uploadImages } from "../functions/addProduct";
+import { connectStorageEmulator} from "@firebase/storage";
 import { ref, uploadBytes, getDownloadURL} from "firebase/storage";
 
+
+
 import {nav} from "../functions/navigation"
+import { async } from "@firebase/util";
 
 //nav
 
@@ -53,17 +56,21 @@ addButton.addEventListener("click", (e)=>{
 console.log(images);
 
 
+
 createProductForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("Create a new product");
     let images = [...document.getElementsByClassName("productImage")];
     let colors = [...document.getElementsByClassName("productColor")];
+    
 
     imagesList.length = 0;
-    images.forEach((images)=>{
-        console.log(images.files);
-        imagesList.push(images.files);
+    images.forEach(  (image)=>{
+        console.log(image.files[0]);
+        imagesList.push(image.files[0]);
     })
+
+    console.log(imagesList);
 
     colorList.length = 0;
        colors.forEach(color =>{
@@ -77,7 +84,7 @@ createProductForm.addEventListener("submit", async (e) => {
     const category = createProductForm.category.value;
    
 
-    
+   /*
     let gallery = [];
     
     if (imagesList.length) {
@@ -85,21 +92,21 @@ createProductForm.addEventListener("submit", async (e) => {
         // Vamos a subir las imagenes a firestore
 
 
-       const srcImages = uploadImages(storage,[...imagesList])
+       const srcImages = uploadImages(storage,imagesList)
 
         gallery = await Promise.all( srcImages);
         console.log(gallery);
-    }
-/*
+    }*/
+
     const newProduct = {
         name,
         price,
         category,
-        images: gallery,
-        colors:{colorList}
+       //images: gallery,
+        colors: colorList
     };
 
     await addProduct(db, newProduct);
-    //console.log(images);
-   // console.log(colors);*/
+    
+  
 });
