@@ -1,0 +1,50 @@
+.products {
+  width: 100%;
+  flex-flow: wrap;
+  display: flex;
+}
+
+.products a {
+  text-decoration: none;
+}
+
+.product__image {
+  height: 318px;
+}
+
+.product__name {
+  color: #000;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42px;
+}
+
+.product__category {
+  color: #a9a9a9;
+}
+
+.product__price {
+  color: #8e8e8e;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+#addProduct {
+  width: fit-content;
+  background-color: #dc037f;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 2px 2px 10px #0000004b;
+}
+
+#addProduct a {
+  color: #fff;
+  padding: 5px 20px;
+  font-size: 60px;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=LS products.06ed6573.css.map */
