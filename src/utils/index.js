@@ -8,9 +8,9 @@ function getMyLocalCart() {
 }
 
 function currencyFormat(price) {
-    return new Intl.NumberFormat("es-CO", {
+    return new Intl.NumberFormat("en-US", {
         style: 'currency',
-        currency: 'COP',
+        currency: 'GBP',
         minimumFractionDigits: 0
     }).format(price);
 }

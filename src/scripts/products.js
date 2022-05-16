@@ -43,8 +43,8 @@ function renderProduct(item) {
     const isProductAddedToCart = cart.some((productCart) => productCart.id === item.id);
 
     const productButtonCart = isProductAddedToCart ?
-    '<button class="product__cart" disabled>Producto añadido</button>' :
-    '<button class="product__cart">Añadir al carrito</button>';
+    '<button class="product__cart" disabled>Added to cart</button>' :
+    '<button class="product__cart">Add to cart</button>';
 
     product.innerHTML = `
     <img src="${coverImage}" alt="" class="product__image">
@@ -71,7 +71,7 @@ function renderProduct(item) {
         }
 
         productCartButton.setAttribute("disabled", true);
-        productCartButton.innerText = "Producto añadido";
+        productCartButton.innerText = "Added to cart";
 
     });
 }

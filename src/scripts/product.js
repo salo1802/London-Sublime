@@ -4,6 +4,7 @@ import { getProduct } from "../functions/getProduct";
 import { getFirebaseCart, createFirebaseCart } from "../functions/cart";
 import { getMyLocalCart, addProductToCart, currencyFormat } from "../utils";
 import {nav} from "../functions/navigation"
+import { enableNetwork } from "@firebase/firestore";
 
 //nav
 
@@ -13,9 +14,11 @@ import {nav} from "../functions/navigation"
    
    const productInfoSection = document.getElementById("productInfo");
    const productAssetsSection = document.getElementById("productAssets");
+   let colorDiv = document.createElement("div");
    
    let userLogged = undefined;
    let cart = [];
+   let actualImage = 0;
    
    function getParam(param) {
        const url = window.location.search;
@@ -38,25 +41,36 @@ import {nav} from "../functions/navigation"
    }
    
    function renderProduct(product) {
+    product.colors.forEach((color, index)=>{
+        newColor = document.createElement("button");
+        newColor.className = "product__colors";
+        newColor.style.backgroundColor = color;
+        newColor.value = index;
+        colorDiv.appendChild(newColor);
+    })
+
+
       productAssetsSection.innerHTML = `
        <img class="product__mainImage" id="mainImage" src="${product.images[0]}">`;
    
        const isProductAddedToCart = cart.some((productCart) => productCart.id === product.id);
    
        const productButtonCart = isProductAddedToCart ?
-       '<button class="product__cart" disabled>Producto añadido</button>' :
-       '<button class="product__cart">Añadir al carrito</button>';
+       '<button class="product__cart" disabled>Added to cart</button>' :
+       '<button class="product__cart">Add to cart</button>';
    
        productInfoSection.innerHTML = `
        <h1 class="product__name">${product.name}</h1>
        <h3 class="product__price">${currencyFormat(product.price)}</h3>
+       ${colorDiv.innerHTML}
+       <label class="custom-file-upload">
+       <input required multiple=false accept=".png,.jpg,.jpeg" class="productImage" type="file" name="productImage">
+       upload the image you want to put in
+        </label>
        ${productButtonCart}`;
    
 
-       /*
-       if (product.images.length > 1) {
-           createGallery(product.images);
-       }*/
+       
    
        const productCartButton = document.querySelector(".product__cart");
        productCartButton.addEventListener("click", e => {
@@ -69,29 +83,26 @@ import {nav} from "../functions/navigation"
            }
    
            productCartButton.setAttribute("disabled", true);
-           productCartButton.innerText = "Producto añadido";
+           productCartButton.innerText = "Added to cart";
        });
-   }
-   
-   function createGallery(images) {
+
        const mainImage = document.getElementById("mainImage");
+
+       const btns = document.querySelectorAll('.product__colors');
+    for (const btn of btns) {
+    btn.addEventListener('click', function() {
+        console.log(mainImage.src)
+    mainImage.src = product.images[this.value];
+    console.log(mainImage.src)
+  });
+}
    
-       const gallery = document.createElement("div");
-       gallery.className = "product__gallery";
    
-       images.forEach(image => {
-           gallery.innerHTML += `<img src="${image}">`;
-       });
+
    
-       productAssetsSection.appendChild(gallery);
    
-       const galleryImages = document.querySelector(".product__gallery");
+       
    
-       galleryImages.addEventListener("click", e => {
-           if (e.target.tagName === "IMG") {
-               mainImage.setAttribute("src", e.target.currentSrc);
-           }
-       });
    }
    
    onAuthStateChanged(auth, async (user) => {
