@@ -57,6 +57,9 @@ console.log(images);
 
 
 
+
+
+
 createProductForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     console.log("Create a new product");
@@ -72,7 +75,7 @@ createProductForm.addEventListener("submit", async (e) => {
 
     console.log(imagesList);
 
-    colorList.length = 0;
+    colorList = []
        colors.forEach(color =>{
            colorList.push(color.value);
        })
@@ -84,7 +87,7 @@ createProductForm.addEventListener("submit", async (e) => {
     const category = createProductForm.category.value;
    
 
-   /*
+   
     let gallery = [];
     
     if (imagesList.length) {
@@ -92,17 +95,17 @@ createProductForm.addEventListener("submit", async (e) => {
         // Vamos a subir las imagenes a firestore
 
 
-       const srcImages = uploadImages(storage,imagesList)
+       const srcImages = await uploadImages(storage,[...imagesList])
 
         gallery = await Promise.all( srcImages);
         console.log(gallery);
-    }*/
+    }
 
     const newProduct = {
         name,
         price,
         category,
-       //images: gallery,
+       images: gallery,
         colors: colorList
     };
 
