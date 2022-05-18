@@ -76,6 +76,7 @@
 
 .custom-file-upload {
   color: #009fe3;
+  cursor: pointer;
   border: 5px dashed #009fe3;
   border-radius: 10px;
   padding: 20px;

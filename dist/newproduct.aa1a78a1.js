@@ -530,8 +530,6 @@ function hmrAcceptRun(bundle, id) {
 var _firestore = require("@firebase/firestore");
 var _app = require("./app");
 var _addProduct = require("../functions/addProduct");
-var _storage = require("@firebase/storage");
-var _storage1 = require("firebase/storage");
 var _navigation = require("../functions/navigation");
 var _util = require("@firebase/util");
 //nav
@@ -581,7 +579,7 @@ createProductForm.addEventListener("submit", async (e)=>{
         imagesList.push(image.files[0]);
     });
     console.log(imagesList);
-    colorList.length = 0;
+    colorList = [];
     colors1.forEach((color)=>{
         colorList.push(color.value);
     });
@@ -590,29 +588,26 @@ createProductForm.addEventListener("submit", async (e)=>{
     const name = createProductForm.productName.value;
     const price = createProductForm.productPrice.value;
     const category = createProductForm.category.value;
-    /*
     let gallery = [];
-    
     if (imagesList.length) {
-
         // Vamos a subir las imagenes a firestore
-
-
-       const srcImages = uploadImages(storage,imagesList)
-
-        gallery = await Promise.all( srcImages);
+        const srcImages = await _addProduct.uploadImages(_app.storage, [
+            ...imagesList
+        ]);
+        gallery = await Promise.all(srcImages);
         console.log(gallery);
-    }*/ const newProduct = {
+    }
+    const newProduct = {
         name,
         price,
         category,
-        //images: gallery,
+        images: gallery,
         colors: colorList
     };
     await _addProduct.addProduct(_app.db, newProduct);
 });
 
-},{"@firebase/firestore":"fkIBe","./app":"bAabt","../functions/addProduct":"hOtnc","@firebase/storage":"jEcdO","firebase/storage":"9dDUH","../functions/navigation":"l47UV","@firebase/util":"ePiK6"}],"fkIBe":[function(require,module,exports) {
+},{"@firebase/firestore":"fkIBe","./app":"bAabt","../functions/addProduct":"hOtnc","../functions/navigation":"l47UV","@firebase/util":"ePiK6"}],"fkIBe":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "AbstractUserDataWriter", ()=>Jh

@@ -532,18 +532,24 @@ var _cart = require("../functions/cart");
 var _utils = require("../utils");
 var _index = require("../utils/index");
 var _navigation = require("../functions/navigation");
+var _firestore = require("firebase/firestore");
+var _util = require("@firebase/util");
 //nav
 _navigation.nav(document);
 const cartSection = document.getElementById("cart");
 const totalSection = document.getElementById("total");
+const buyBtn = document.getElementById("buy");
+const cartForm = document.getElementById("cartform");
+const cancelBtn = document.getElementById("cancel");
 let cart = [];
+cartForm.hidden = true;
 function loadCart(cart1) {
     let total = 0;
     cart1.forEach((product)=>{
         renderProduct(product);
         total += parseInt(product.price);
     });
-    totalSection.innerText = _index.currencyFormat(total);
+    totalSection.innerText = "Total: " + _index.currencyFormat(total);
 }
 async function removeProduct(productId) {
     const newCart = cart.filter((product)=>product.id !== productId
@@ -556,12 +562,15 @@ async function removeProduct(productId) {
 }
 function renderProduct(product) {
     const productCart = document.createElement("li");
-    productCart.className = "product";
+    productCart.className = "product flex";
     productCart.innerHTML = `
     <img src="${product.images[0]}" class="product__image">
+    <div class="info">
     <h2 class="product__name">${product.name}</h2>
     <h3 class="product__price">${_index.currencyFormat(product.price)}</h3>
-    <button class="product__delete">Eliminar producto</button>
+    <input class="product__color" type="color" value="${product.colors[0]}"
+    </div>
+    <button class="product__delete">Delete</button>
     `;
     cartSection.appendChild(productCart);
     productCart.addEventListener("click", (e)=>{
@@ -573,15 +582,43 @@ function renderProduct(product) {
 }
 _auth.onAuthStateChanged(_app.auth, async (user)=>{
     if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
         userLogged = user;
         cart = await _cart.getFirebaseCart(_app.db, userLogged.uid);
     } else cart = _index.getMyLocalCart();
     loadCart(cart);
 });
+buyBtn.addEventListener("click", ()=>{
+    cartForm.hidden = false;
+});
+cancelBtn.addEventListener("click", ()=>{
+    cartForm.hidden = true;
+});
+//make the purchase
+currentTime = new Date();
+cartForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    if (userLogged) {
+        console.log(userLogged.uid);
+        try {
+            let order = {
+                user: userLogged.uid,
+                order: cart,
+                address: cartForm.address.value,
+                username: cartForm.name.value,
+                useremail: cartForm.email.value,
+                phone: cartForm.phone.value,
+                zip: cartForm.zip.value,
+                date: currentTime
+            };
+            console.log("Order made");
+            _firestore.addDoc(_firestore.collection(_app.db, "users/" + userLogged.uid + "/orders"), order).then(alert("Your order has been made! "));
+        } catch (e) {
+            console.log(e);
+        }
+    }
+});
 
-},{"./app":"bAabt","firebase/auth":"drt1f","../functions/cart":"b7GtJ","../utils":"jxTvD","../utils/index":"jxTvD","../functions/navigation":"l47UV"}],"bAabt":[function(require,module,exports) {
+},{"./app":"bAabt","firebase/auth":"drt1f","../functions/cart":"b7GtJ","../utils":"jxTvD","../utils/index":"jxTvD","../functions/navigation":"l47UV","firebase/firestore":"cJafS","@firebase/util":"ePiK6"}],"bAabt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "app", ()=>app

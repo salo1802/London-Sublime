@@ -560,12 +560,14 @@ function renderProduct(item) {
     const productButtonCart = isProductAddedToCart ? '<button class="product__cart" disabled>Added to cart</button>' : '<button class="product__cart">Add to cart</button>';
     product.innerHTML = `
     <img src="${coverImage}" alt="" class="product__image">
+    <div class="product__bot">
     <div class="product__info">
         <h2 class="product__name">${item.name}</h2>
         <p class="product__category">${item.category}</p> 
         <h3 class="product__price">${_utils.currencyFormat(item.price)}</h3>
+        </div>
         ${productButtonCart}
-    </div>
+        </div>
     `;
     productSection.appendChild(product);
     const productCartButton = product.querySelector(".product__cart");

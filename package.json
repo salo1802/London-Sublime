@@ -2,10 +2,10 @@
   "name": "londonsublime",
   "version": "1.0.0",
   "description": "",
-  "main": "login.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel ./*.html --no-cache"
+    "dev": "parcel ./*.html --no-cache",
+    "build": "parcel build --public-url ./ ./*.html "
   },
   "repository": {
     "type": "git",

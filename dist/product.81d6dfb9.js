@@ -532,7 +532,6 @@ var _getProduct = require("../functions/getProduct");
 var _cart = require("../functions/cart");
 var _utils = require("../utils");
 var _navigation = require("../functions/navigation");
-var _firestore = require("@firebase/firestore");
 //nav
 _navigation.nav(document);
 const productInfoSection = document.getElementById("productInfo");
@@ -565,19 +564,24 @@ function renderProduct(product) {
         colorDiv.appendChild(newColor);
     });
     productAssetsSection.innerHTML = `
-       <img class="product__mainImage" id="mainImage" src="${product.images[0]}">`;
+       <img class="product__mainImage" id="mainImage" src="${product.images[0]}">
+       <div class="colors">
+       ${colorDiv.innerHTML}
+       </div>
+       `;
     const isProductAddedToCart = cart.some((productCart)=>productCart.id === product.id
     );
     const productButtonCart = isProductAddedToCart ? '<button class="product__cart" disabled>Added to cart</button>' : '<button class="product__cart">Add to cart</button>';
     productInfoSection.innerHTML = `
        <h1 class="product__name">${product.name}</h1>
        <h3 class="product__price">${_utils.currencyFormat(product.price)}</h3>
-       ${colorDiv.innerHTML}
+       <div class="product__interaction flex">
        <label class="custom-file-upload">
        <input required multiple=false accept=".png,.jpg,.jpeg" class="productImage" type="file" name="productImage">
        upload the image you want to put in
         </label>
-       ${productButtonCart}`;
+       ${productButtonCart}
+       </div>`;
     const productCartButton = document.querySelector(".product__cart");
     productCartButton.addEventListener("click", (e)=>{
         cart.push(product);
@@ -590,6 +594,7 @@ function renderProduct(product) {
     const btns = document.querySelectorAll('.product__colors');
     for (const btn of btns)btn.addEventListener('click', function() {
         console.log(mainImage.src);
+        actualImage = this.value;
         mainImage.src = product.images[this.value];
         console.log(mainImage.src);
     });
@@ -606,7 +611,7 @@ _auth.onAuthStateChanged(_app.auth, async (user)=>{
     loadProduct();
 });
 
-},{"./app":"bAabt","firebase/auth":"drt1f","../functions/getProduct":"i05I1","../functions/cart":"b7GtJ","../utils":"jxTvD","../functions/navigation":"l47UV","@firebase/firestore":"fkIBe"}],"bAabt":[function(require,module,exports) {
+},{"./app":"bAabt","firebase/auth":"drt1f","../functions/getProduct":"i05I1","../functions/cart":"b7GtJ","../utils":"jxTvD","../functions/navigation":"l47UV"}],"bAabt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "app", ()=>app

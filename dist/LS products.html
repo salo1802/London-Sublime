@@ -45,23 +45,27 @@
 
 </div>
    
-
-<label for="category">Filter</label>
-<select name="category" id="category">
-    <option value="">All</option>
-    <option value="Clothes">Clothes</option>
-    <option value="Accessories">Accessories</option>
-    <option value="For Home">For home</option>
+<div id="filters">
+    <label class="filter" for="category">Filter</label>
+    <select name="category" id="category">
+        <option value="">All</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Accessories">Accessories</option>
+        <option value="For Home">For home</option>
+        
+    </select>
     
-</select>
+    <label class="filter" for="order">Sort by</label>
+    <select name="order" id="order">
+        <option value="">Select an option</option>
+        <option value="asc">Price: from higher to lower</option>
+        <option value="desc">Price: from lower to higher</option>
+        <option value="color">Color: amount of color options</option>
+    </select>
 
-<label for="order">Sort by</label>
-<select name="order" id="order">
-    <option value="">Select an option</option>
-    <option value="asc">Price: from higher to lower</option>
-    <option value="desc">Price: from lower to higher</option>
-    <option value="color">Color: amount of color options</option>
-</select>
+
+</div>
+
 
 
 <section class="products" id="products">

@@ -5,7 +5,10 @@
 }
 
 html, body {
+  flex-direction: column;
+  justify-content: space-between;
   font-family: Poppins, sans-serif;
+  display: flex;
 }
 
 .flex {
@@ -266,6 +269,7 @@ footer {
   background-color: #302b87;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 0;
   padding: 25px;
 }
 
