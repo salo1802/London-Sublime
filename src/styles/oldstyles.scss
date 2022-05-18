@@ -6,6 +6,9 @@
   
   html, body {
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .flex {
@@ -282,6 +285,8 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 25px;
+    margin-bottom: 0;
+  
   }
   
   .footer__content {

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
+    <link rel="stylesheet" href="./src/styles/login.scss">
     <link rel="stylesheet" href="./src/styles/oldstyles.scss">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +42,8 @@
 
 
 
-<div class = "login">
-    <div class="login__top">
+<div class = "login flex">
+    <div class="login__top flex">
         <img class="login__logo" src="/imgs/logoazul.png" alt="logoazul-img">
     <h2 class="login__title">Log In</h2>
     <a class="login__x" href="./LS products.html">X</a>
@@ -52,14 +53,19 @@
     <h2 class="login__subtitle">Email</h2>
     <input class="login__input" type="email"  placeholder="Email" name="email" required>
     <h2 class="login__subtitle">Password</h2>
-    <input class="login__input" type="password"  placeholder="Password" name="password" required>
-    <input type="submit" name="submiter" value="login">
-    <p>
-        you're not register yet?  <a id="register" href="#registerForm">sing up</a>
-    </p>
+    <br>
+    <div class="boton flex">
+        <input class="login__input" type="password"  placeholder="Password" name="password" required>
+        <input class="submit" type="submit" name="submiter" value="login">
+        <p>
+            you're not register yet?  <a id="register" href="#registerForm">sing up</a>
+        </p>
+
+    </div>
+    
    
 </form>
-</div>
+
    
 <div class="register">
     <form id="RegisterForm">
@@ -69,11 +75,14 @@
         <input class="login__input" type="text"  placeholder="Username" name="username" required>
         <h2 class="login__subtitle">Password</h2>
         <input class="login__input" type="password"  placeholder="Password" name="password" required>
-        <input type="submit" value="sing me up">
+        <div class="boton flex">
+            <input class="submit"  type="submit" value="sing me up">
+        </div>
+        
     </form>
 
 </div>
-
+</div>
 
  
     <!-- fotter -->
