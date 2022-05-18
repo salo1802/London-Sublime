@@ -51,7 +51,11 @@ import {nav} from "../functions/navigation"
 
 
       productAssetsSection.innerHTML = `
-       <img class="product__mainImage" id="mainImage" src="${product.images[0]}">`;
+       <img class="product__mainImage" id="mainImage" src="${product.images[0]}">
+       <div class="colors">
+       ${colorDiv.innerHTML}
+       </div>
+       `;
    
        const isProductAddedToCart = cart.some((productCart) => productCart.id === product.id);
    
@@ -62,12 +66,13 @@ import {nav} from "../functions/navigation"
        productInfoSection.innerHTML = `
        <h1 class="product__name">${product.name}</h1>
        <h3 class="product__price">${currencyFormat(product.price)}</h3>
-       ${colorDiv.innerHTML}
+       <div class="product__interaction flex">
        <label class="custom-file-upload">
        <input required multiple=false accept=".png,.jpg,.jpeg" class="productImage" type="file" name="productImage">
        upload the image you want to put in
         </label>
-       ${productButtonCart}`;
+       ${productButtonCart}
+       </div>`;
    
 
        
