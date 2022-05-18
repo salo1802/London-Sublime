@@ -1,24 +1,157 @@
-
-.product__image{
-    height: 200px;
+.cartdiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
+.cart{
+    width: fit-content;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px #00012c4b;
+}
+.product {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+    
+}
+.product__image{
+    height: 100px;
+}
+
+.info{
+    margin-left: 30px;
+}
 .product__name{
     color: #000000;
     font-weight: 600;
-font-size: 36px;
-line-height: 42px;
+font-size: 1.5em;
 }
 
-.product__category{
-    color: darkgray;
+.product__color{
+    height: 30px;
+    width: 30px;
+}
+
+.product__delete{
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    background-color: #DC037F;
+    padding: 10px;
 }
 
 .product__price{
     font-weight: 600;
-font-size: 24px;
+font-size: 1em;
 line-height: 28px;
 
 color: #8E8E8E;
 
+}
+
+.tittle{
+    font-size: 3.5em;
+    color: #140a3b;
+
+}
+
+#total{
+    margin-top: 20px;
+    font-size: 2em;
+    color: #140a3b;
+}
+
+#buy{
+    width: 150px;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background-color: #DC037F;
+    padding: 10px;
+    margin-bottom: 100px;
+}
+
+#checkout{
+    position: fixed;
+    top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+#ctittle{
+    font-size: 2em;
+    color: #140a3b;
+    margin-bottom: 10px;
+}
+
+#cartform{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px #00012c4b;
+}
+
+.form__input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.form__input--cc{
+    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 65%;
+}
+
+.form__input--ccp{
+    margin-left: 10px;
+    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 20%;
+}
+.formtitles{
+    font-size: 1em;
+}
+
+#textarea{
+    width: 100%;
+}
+
+#cancel{
+    width: 100px;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background-color: #DC037F;
+    padding: 10px;
+}
+.submit{
+    width: 100px;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background-color: #DC037F;
+    padding: 10px;
+ 
 }

@@ -1,23 +1,146 @@
+.cartdiv {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.cart {
+  width: fit-content;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px #00012c4b;
+}
+
+.product {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  display: flex;
+}
+
 .product__image {
-  height: 200px;
+  height: 100px;
+}
+
+.info {
+  margin-left: 30px;
 }
 
 .product__name {
   color: #000;
-  font-size: 36px;
+  font-size: 1.5em;
   font-weight: 600;
-  line-height: 42px;
 }
 
-.product__category {
-  color: #a9a9a9;
+.product__color {
+  height: 30px;
+  width: 30px;
+}
+
+.product__delete {
+  color: #fff;
+  background-color: #dc037f;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
 }
 
 .product__price {
   color: #8e8e8e;
-  font-size: 24px;
+  font-size: 1em;
   font-weight: 600;
   line-height: 28px;
+}
+
+.tittle {
+  color: #140a3b;
+  font-size: 3.5em;
+}
+
+#total {
+  color: #140a3b;
+  margin-top: 20px;
+  font-size: 2em;
+}
+
+#buy {
+  width: 150px;
+  color: #fff;
+  background-color: #dc037f;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  padding: 10px;
+  font-size: 1.5em;
+}
+
+#checkout {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#ctittle {
+  color: #140a3b;
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+#cartform {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px #00012c4b;
+}
+
+.form__input {
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.form__input--cc {
+  width: 65%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.form__input--ccp {
+  width: 20%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.formtitles {
+  font-size: 1em;
+}
+
+#textarea {
+  width: 100%;
+}
+
+#cancel, .submit {
+  width: 100px;
+  color: #fff;
+  background-color: #dc037f;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1.5em;
 }
 
 /*# sourceMappingURL=car.4bbcec07.css.map */

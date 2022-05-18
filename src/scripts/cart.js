@@ -50,12 +50,14 @@ async function removeProduct(productId) {
 
 function renderProduct(product) {
     const productCart = document.createElement("li");
-    productCart.className = "product";
+    productCart.className = "product flex";
     productCart.innerHTML = `
     <img src="${product.images[0]}" class="product__image">
-    <input class="product__color" type="color" value="${product.colors[0]}"
+    <div class="info">
     <h2 class="product__name">${product.name}</h2>
     <h3 class="product__price">${currencyFormat(product.price)}</h3>
+    <input class="product__color" type="color" value="${product.colors[0]}"
+    </div>
     <button class="product__delete">Delete</button>
     `;
 
