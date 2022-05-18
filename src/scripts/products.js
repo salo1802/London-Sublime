@@ -48,12 +48,14 @@ function renderProduct(item) {
 
     product.innerHTML = `
     <img src="${coverImage}" alt="" class="product__image">
+    <div class="product__bot">
     <div class="product__info">
         <h2 class="product__name">${item.name}</h2>
         <p class="product__category">${item.category}</p> 
         <h3 class="product__price">${currencyFormat(item.price)}</h3>
+        </div>
         ${productButtonCart}
-    </div>
+        </div>
     `;
 
     productSection.appendChild(product);
