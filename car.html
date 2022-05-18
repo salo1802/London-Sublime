@@ -51,19 +51,19 @@
     <button id="buy">Buy</button>
 
     <div id="checkout"> 
-        <form >
-            <input type="text" name="name" placeholder="Enter your full name">
-            <input type="email" name="email" placeholder="Enter your email">
-            <input type="tel" name="phone" placeholder="Enter your phone number">
+        <form id="cartform">
+            <input required type="text" name="name" placeholder="Enter your full name">
+            <input required  type="email" name="email" placeholder="Enter your email">
+            <input required  type="tel" name="phone" placeholder="Enter your phone number">
             <div id="ccInfo">
-                <input  name="credit card" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}"
+                <input required  name="credit card" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}"
               autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
-            <input type="password" maxlength="3">
+            <input required  type="password" maxlength="3">
             </div>
-            <input name="address" placeholder="Enter your address" onFocus="geolocate()" type="text" class="form-control">
-            <input  name="zip" type="text" pattern="[0-9]*" placeholder="Enter your zip code">
-            <textarea name="info" maxlength="60"></textarea>
-            <button id="cancel">Cancel</button>
+            <input required  name="address" placeholder="Enter your address" onFocus="geolocate()" type="text" class="form-control">
+            <input required  name="zip" type="text" pattern="[0-9]*" placeholder="Enter your zip code">
+            <textarea required  name="info" maxlength="60"></textarea>
+            <button   id="cancel">Cancel</button>
             <input type="submit" value="Buy">
         </form>
     </div>

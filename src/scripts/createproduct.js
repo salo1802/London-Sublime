@@ -2,8 +2,7 @@
 import { doc } from "@firebase/firestore";
 import { storage, db } from "./app";
 import { addProduct, uploadImages } from "../functions/addProduct";
-import { connectStorageEmulator} from "@firebase/storage";
-import { ref, uploadBytes, getDownloadURL} from "firebase/storage";
+
 
 
 

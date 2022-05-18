@@ -4,7 +4,7 @@ import { getProduct } from "../functions/getProduct";
 import { getFirebaseCart, createFirebaseCart } from "../functions/cart";
 import { getMyLocalCart, addProductToCart, currencyFormat } from "../utils";
 import {nav} from "../functions/navigation"
-import { enableNetwork } from "@firebase/firestore";
+
 
 //nav
 
@@ -88,10 +88,13 @@ import { enableNetwork } from "@firebase/firestore";
 
        const mainImage = document.getElementById("mainImage");
 
+
+
        const btns = document.querySelectorAll('.product__colors');
     for (const btn of btns) {
     btn.addEventListener('click', function() {
-        console.log(mainImage.src)
+        console.log(mainImage.src);
+    actualImage = this.value;
     mainImage.src = product.images[this.value];
     console.log(mainImage.src)
   });
