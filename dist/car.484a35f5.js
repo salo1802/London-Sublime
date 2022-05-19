@@ -543,11 +543,13 @@ const cartForm = document.getElementById("cartform");
 const cancelBtn = document.getElementById("cancel");
 let cart = [];
 cartForm.hidden = true;
+let totalGobal = 0;
 function loadCart(cart1) {
     let total = 0;
     cart1.forEach((product)=>{
         renderProduct(product);
         total += parseInt(product.price);
+        totalGobal += parseInt(product.price);
     });
     totalSection.innerText = "Total: " + _index.currencyFormat(total);
 }
@@ -600,6 +602,9 @@ cartForm.addEventListener("submit", (e)=>{
     if (userLogged) {
         console.log(userLogged.uid);
         try {
+            cart.forEach((product)=>{
+                total += parseInt(product.price.value);
+            });
             let order = {
                 user: userLogged.uid,
                 order: cart,
@@ -608,10 +613,12 @@ cartForm.addEventListener("submit", (e)=>{
                 useremail: cartForm.email.value,
                 phone: cartForm.phone.value,
                 zip: cartForm.zip.value,
-                date: currentTime
+                date: currentTime,
+                total: total
             };
             console.log("Order made");
             _firestore.addDoc(_firestore.collection(_app.db, "users/" + userLogged.uid + "/orders"), order).then(alert("Your order has been made! "));
+            cartForm.hidden = true;
         } catch (e) {
             console.log(e);
         }

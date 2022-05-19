@@ -19,12 +19,13 @@ let cart = [];
 
 cartForm.hidden = true;
 
-
+let totalGobal = 0;
 function loadCart(cart) {
     let total = 0;
     cart.forEach(product => {
         renderProduct(product);
         total += parseInt(product.price);
+        totalGobal += parseInt(product.price);
     });
 
     totalSection.innerText = "Total: "+currencyFormat(total);
@@ -101,6 +102,10 @@ cancelBtn.addEventListener("click",()=>{
         console.log(userLogged.uid)
         try {
 
+            cart.forEach(product => {
+                total += parseInt(product.price.value);
+            });
+
             let order = {
                 user: userLogged.uid,
                 order: cart,
@@ -109,13 +114,16 @@ cancelBtn.addEventListener("click",()=>{
                 useremail: cartForm.email.value,
                 phone: cartForm.phone.value,
                 zip: cartForm.zip.value,
-                date: currentTime
+                date: currentTime,
+                total: total
             }
             console.log("Order made");
            
           addDoc(collection(db,"users/"+userLogged.uid+ "/orders" ), order).then(
-            alert("Your order has been made! ")
-           )
+            alert("Your order has been made! "));
+           
+            cartForm.hidden = true;
+           
             
             
             
