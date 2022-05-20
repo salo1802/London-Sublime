@@ -1,0 +1,2 @@
+!function(e){const t=e.getElementsByClassName("header__profile"),n=e.getElementsByClassName("header__logo"),l=e.getElementsByClassName("header__car");console.log(t),t&&t[0].addEventListener("click",(e=>{window.location.href="./login.html"})),n&&n[0].addEventListener("click",(e=>{window.location.href="./LS products.html"})),l&&l[0].addEventListener("click",(e=>{window.location.href="./car.html"}))}(document);
+//# sourceMappingURL=index.7ce8a8a3.js.map
